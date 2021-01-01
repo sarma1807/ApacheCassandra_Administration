@@ -12,6 +12,7 @@
 
 ```
 mkdir ~/admin
+mkdir ~/logs
 ```
 
 ##### upload following 2 files to ~/admin folder and change file permissions
@@ -20,8 +21,11 @@ mkdir ~/admin
 start_dse.sh
 stop_dse.sh
 
-chmod u+rwx ~/admin/*.sh
-chmod go-rwx ~/admin/*.sh
+chmod u+rwx ~/admin/start_dse.sh
+chmod u+rwx ~/admin/stop_dse.sh
+
+chmod go-rwx ~/admin/start_dse.sh
+chmod go-rwx ~/admin/stop_dse.sh
 ```
 
 ---
