@@ -1,1 +1,1 @@
-# ApacheCassandra_Administration
+# Apache Cassandra - Administration Scripts
