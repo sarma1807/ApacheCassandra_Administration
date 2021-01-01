@@ -1,0 +1,19 @@
+[Unit]
+Description=DSE DB Service
+Requires=rpc-statd.service network.target nfs.service nfs-mountd.service local-fs.target remote-fs.target
+After=syslog.target network.target nfs.service nfs-mountd.service local-fs.target rpc-statd.service remote-fs.target
+
+[Service]
+LimitNOFILE=100000
+Type=forking
+RemainAfterExit=yes
+User=cassandra
+ExecStartPre=/usr/bin/sleep 30
+ExecStart=/usr/bin/bash -c '/apps/opt/cassandra/admin/start_dse.sh'
+ExecStop=/usr/bin/bash  -c '/apps/opt/cassandra/admin/stop_dse.sh'
+ExecStopPost=/usr/bin/sleep 30
+Restart=no
+
+[Install]
+WantedBy=multi-user.target
+
