@@ -1,0 +1,22 @@
+#!/bin/bash
+#########################
+source ~/.bash_profile
+export LOGFILE=~/logs/cassandra_startup.log
+
+### stop Cassandra
+echo `printf "%0.s-" {1..20}` >> $LOGFILE
+echo `date` >> $LOGFILE
+echo "Attempting to stop Cassandra (if it is already running) ..." >> $LOGFILE
+nodetool drain
+nodetool stopdaemon
+sleep 30
+
+### start Cassandra
+echo `printf "%0.s-" {1..20}` >> $LOGFILE
+echo `date` >> $LOGFILE
+echo "Attempting to start Cassandra ..." >> $LOGFILE
+cassandra
+sleep 5
+#########################
+exit 0
+
