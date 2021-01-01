@@ -1,0 +1,61 @@
+##### auto-start scripts for DataStax Enterprise when installed using tarball
+
+##### systemd (based on system V) : use this method on systems with Linux 7.x and above
+
+##### scripts assume that DSE is configured to run as "cassandra" OS user
+
+##### scripts assume ~/.bash_profile for "cassandra" OS user has <DSE_HOME>/bin is included into $PATH
+
+---
+
+##### as "cassandra" user
+
+```
+mkdir ~/admin
+```
+
+##### upload following 2 files to ~/admin folder and change file permissions
+
+```
+start_dse.sh
+stop_dse.sh
+
+chmod u+rwx ~/admin/*.sh
+chmod go-rwx ~/admin/*.sh
+```
+
+---
+
+##### as "root" user
+
+##### upload following file to "/etc/systemd/system" folder
+
+```
+dseDB.service
+```
+
+##### reload systemd daemon
+
+```
+systemctl daemon-reload
+```
+
+##### verify if auto-start service exists
+```
+systemctl list-unit-files | egrep -i "cassandra|dse"
+```
+
+##### disable/enable the auto-start service
+
+```
+systemctl disable dseDB.service
+systemctl enable  dseDB.service
+```
+
+##### service [ status | start | stop ]
+```
+systemctl status dseDB.service
+systemctl start  dseDB.service
+systemctl stop   dseDB.service
+```
+
