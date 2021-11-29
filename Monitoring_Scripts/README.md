@@ -43,3 +43,6 @@ on DataStax Enterprise cluster use : dse_restart_cluster.sh
 #####################################
 ```
 
+### Sample Email Alert
+![cass_monitor.jpg](https://github.com/sarma1807/ApacheCassandra_Administration/blob/main/Monitoring_Scripts/cass_monitor.jpg) <br><br>
+
