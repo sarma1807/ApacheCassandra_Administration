@@ -28,9 +28,11 @@ mkdir ~/logs
 ##### upload following 2 files to ~/admin folder and change file permissions
 
 ```
-start_cassandra.sh
-stop_cassandra.sh
+cp start_cassandra.sh ~/admin
+cp stop_cassandra.sh ~/admin
+```
 
+```
 chmod u+rwx ~/admin/start_cassandra.sh
 chmod u+rwx ~/admin/stop_cassandra.sh
 
@@ -45,7 +47,7 @@ chmod go-rwx ~/admin/stop_cassandra.sh
 ##### upload following file to "/etc/systemd/system" folder
 
 ```
-cassandraDB.service
+cp cassandraDB.service /etc/systemd/system
 ```
 
 ##### reload systemd daemon
@@ -72,4 +74,3 @@ systemctl status cassandraDB.service
 systemctl start  cassandraDB.service
 systemctl stop   cassandraDB.service
 ```
-
