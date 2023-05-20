@@ -18,9 +18,11 @@ mkdir ~/logs
 ##### upload following 2 files to ~/admin folder and change file permissions
 
 ```
-start_dse.sh
-stop_dse.sh
+cp start_dse.sh ~/admin
+cp stop_dse.sh ~/admin
+```
 
+```
 chmod u+rwx ~/admin/start_dse.sh
 chmod u+rwx ~/admin/stop_dse.sh
 
@@ -35,7 +37,7 @@ chmod go-rwx ~/admin/stop_dse.sh
 ##### upload following file to "/etc/systemd/system" folder
 
 ```
-dseDB.service
+cp dseDB.service /etc/systemd/system
 ```
 
 ##### reload systemd daemon
@@ -62,4 +64,3 @@ systemctl status dseDB.service
 systemctl start  dseDB.service
 systemctl stop   dseDB.service
 ```
-
