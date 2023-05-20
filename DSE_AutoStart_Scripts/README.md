@@ -48,7 +48,7 @@ systemctl daemon-reload
 
 ##### verify if auto-start service exists
 ```
-systemctl list-unit-files | egrep -i "cassandra|dse"
+systemctl list-unit-files | egrep -i "cassandra|dse|UNIT FILE"
 ```
 
 ##### disable/enable the auto-start service
@@ -64,3 +64,4 @@ systemctl status dseDB.service
 systemctl start  dseDB.service
 systemctl stop   dseDB.service
 ```
+
