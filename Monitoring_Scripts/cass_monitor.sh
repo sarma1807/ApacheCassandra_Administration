@@ -52,7 +52,10 @@ do
   ssh ${n} " source ~/.bash_profile > /dev/null ; nodetool status | egrep -v 'Datacenter|Status|State|Address|keyspaces|=' | grep . ; " >> $CASS_STATUS_A1
 done
 
-cat $CASS_STATUS_A1 | sort | uniq > $CASS_STATUS_A2
+# previous code was causing duplicate counts
+# cat $CASS_STATUS_A1 | sort | uniq > $CASS_STATUS_A2
+# new code change on 10-Sep-2023
+cat $CASS_STATUS_A1 | awk '{ print $1" "$2 }' | sort | uniq > $CASS_STATUS_A2
 
 # get count of nodes based on status
 COUNT_UP_NODES=`cat $CASS_STATUS_A2 | grep 'UN ' | wc -l`
@@ -112,7 +115,7 @@ then
   echo -e "<br><br>Report generated on `hostname` @ `date +'%Y-%m-%d %H:%M:%S'` \n\n" >> $CASS_STATUS_EMAIL
 
   ### send email
-  cat $CASS_STATUS_EMAIL | /usr/sbin/sendmail -t
+  cat $CASS_STATUS_EMAIL | /usr/sbin/sendmail -r $DO_NOT_REPLY_EMAIL -t
 
   ### send pager alert, if it was previously NOT sent
   if [[ ! -f "$CASS_STATUS_PG" ]]

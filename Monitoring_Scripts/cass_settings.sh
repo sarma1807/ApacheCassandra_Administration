@@ -5,7 +5,7 @@
 #####################################
 # environment variables
 
-SCRIPT_VERSION=v06_20210126_SarmaPydipally
+SCRIPT_VERSION=v07_20230910_SarmaPydipally
 
 ### change following settings according to your environment
 
@@ -13,12 +13,13 @@ SCRIPT_VERSION=v06_20210126_SarmaPydipally
 TO_EMAIL_LIST=<email_1>,<email_2>,<email_3>
 TO_PAGER_LIST=<pager_1>,<pager_2>
 FROM_EMAIL_ID=`hostname`
+DO_NOT_REPLY_EMAIL=<email>
 
 SCRIPT_FOLDER=$(realpath "$(dirname "${BASH_SOURCE[0]}")")
 LOG_FOLDER="${SCRIPT_FOLDER}/../logs"
 
 # space separated
-NODES="<server_1> <server_2>"
+NODES="server1 server2"
 
 
 # nodes for repair

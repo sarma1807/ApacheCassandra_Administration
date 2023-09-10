@@ -24,7 +24,7 @@ LOG_FILE=$LOG_FOLDER/repair_full.log_`date +'%Y%m%d-%H%M%S'`
 # main logic
 for n in ${REPAIR_NODES}
 do
-  ssh ${n} " source ~/.bash_profile > /dev/null ; hostname ; nodetool repair --full ; " >> $LOG_FILE
+  ssh ${n} " source ~/.bash_profile > /dev/null ; hostname ; nodetool repair --job-threads 2 --full ; " >> $LOG_FILE
 done
 
 SCRIPT_RUN_END="`date +'%a %d-%b-%Y %I:%M:%S %p %Z'`"

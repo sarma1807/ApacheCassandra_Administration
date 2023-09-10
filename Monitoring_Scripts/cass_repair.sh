@@ -30,7 +30,7 @@ LOG_FILE=$LOG_FOLDER/repair.log_`date +'%Y%m%d-%H%M%S'`
 # main logic
 for n in ${REPAIR_NODES}
 do
-  ssh ${n} " source ~/.bash_profile > /dev/null ; hostname ; nodetool repair --partitioner-range ; " >> $LOG_FILE
+  ssh ${n} " source ~/.bash_profile > /dev/null ; hostname ; nodetool repair --job-threads 2 --partitioner-range ; " >> $LOG_FILE
 done
 
 SCRIPT_RUN_END="`date +'%a %d-%b-%Y %I:%M:%S %p %Z'`"
