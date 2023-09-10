@@ -21,7 +21,7 @@ SCRIPT_RUN_START_NUM="`date +'%s'`"
 # main logic
 for n in ${NODES}
 do
-  ssh ${n} " source ~/.bash_profile > /dev/null ; hostname ; dse cassandra-stop ; sleep 30 ; dse cassandra ; sleep 30 ; "
+  ssh ${n} " source ~/.bash_profile > /dev/null ; hostname ; nodetool drain ; sleep 5 ; dse cassandra-stop ; sleep 30 ; dse cassandra ; sleep 30 ; "
 done
 
 SCRIPT_RUN_END="`date +'%a %d-%b-%Y %I:%M:%S %p %Z'`"
