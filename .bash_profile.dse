@@ -1,0 +1,41 @@
+# ~/.bash_profile
+
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+        . ~/.bashrc
+fi
+
+export PATH=$PATH:$HOME/.local/bin:$HOME/bin
+
+
+alias d='du -hx --max-depth=1'
+alias l='ls -lh --color=auto'
+
+export PATH=$PATH:~/dse-current/bin:
+
+alias start_dse='dse cassandra'
+alias start_dse_spark='dse cassandra -k'
+alias start_dse_spark_search='dse cassandra -k -s'
+alias stop_dse='dse cassandra-stop'
+
+alias n='dsetool status'
+
+export PS1='\u@\h:\W $ '
+
+clear
+echo -e "\e[0m\033[31m
+  _____   _____ ______
+ |  __ \ / ____|  ____|
+ | |  | | (___ | |__
+ | |  | |\___ \|  __|
+ | |__| |____) | |____
+ |_____/|_____/|______|
+
+  DataStax Enterprise
+\e[0m " ;
+
+echo -e "to start/stop DSE - use following aliases/commands :"
+echo -e "START DSE       : start_dse / start_dse_spark / start_dse_spark_search"
+echo -e "STOP  DSE       : stop_dse"
+echo -e ""
+
