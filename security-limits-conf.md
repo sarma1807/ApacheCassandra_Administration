@@ -2,12 +2,11 @@
 
 ---
 
-###### as "root" user
-###### add following entries to file : 
+###### as "root" user :
 ```
 vi /etc/security/limits.conf
 ```
-
+###### add following entries above file :
 ```
 cassandra  soft  memlock  unlimited
 cassandra  hard  memlock  unlimited
