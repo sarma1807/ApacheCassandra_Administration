@@ -3,7 +3,10 @@
 ---
 
 ###### as "root" user
-###### add following entries to file : /etc/security/limits.conf
+###### add following entries to file : 
+```
+vi /etc/security/limits.conf
+```
 
 ```
 cassandra  soft  memlock  unlimited
