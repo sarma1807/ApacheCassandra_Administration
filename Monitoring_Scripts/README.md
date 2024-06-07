@@ -39,7 +39,10 @@ GRANT SELECT ON system.local TO cql_monitor ;
 LIST ALL PERMISSIONS OF cql_monitor ;
 ```
 
-##### password generated using : ``` echo -n ILovePlayStation | md5sum | cut -f1 -d" " ````
+##### password generated using : 
+```
+echo -n ILovePlayStation | md5sum | cut -f1 -d" "
+```
 
 ### crontab entries
 
@@ -57,5 +60,5 @@ LIST ALL PERMISSIONS OF cql_monitor ;
 ```
 
 ### Sample Email Alert
-![cass_monitor.jpg](https://github.com/sarma1807/ApacheCassandra_Administration/blob/main/Monitoring_Scripts/cass_monitor.jpg) <br><br>
+![cass_monitor.jpg](https://github.com/Sarma1807/ApacheCassandra_Administration/blob/main/Monitoring_Scripts/cass_monitor.jpg) <br><br>
 
