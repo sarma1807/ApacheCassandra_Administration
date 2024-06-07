@@ -39,7 +39,7 @@ GRANT SELECT ON system.local TO cql_monitor ;
 LIST ALL PERMISSIONS OF cql_monitor ;
 ```
 
-##### password generated using : ` echo -n ILovePlayStation | md5sum | cut -f1 -d" " `
+##### password generated using : ``` echo -n ILovePlayStation | md5sum | cut -f1 -d" " ````
 
 ### crontab entries
 
