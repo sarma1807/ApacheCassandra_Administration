@@ -115,7 +115,7 @@ then
   echo -e "<br><br>Report generated on `hostname` @ `date +'%Y-%m-%d %H:%M:%S'` \n\n" >> $CASS_STATUS_EMAIL
 
   ### send email
-  cat $CASS_STATUS_EMAIL | sendmail -r $DO_NOT_REPLY_EMAIL -t
+  cat $CASS_STATUS_EMAIL | $SENDMAIL_LOCATION/sendmail -r $DO_NOT_REPLY_EMAIL -t
 
   ### send pager alert, if it was previously NOT sent
   if [[ ! -f "$CASS_STATUS_PG" ]]
@@ -123,10 +123,10 @@ then
     if [[ "${ALL_NODES_DOWN}" = "Y" ]]
     then
       SINGLE_LINE_MAIL_MSG="Subject: ALL NODES might be down in ${CASS_CLUSTER_NAME}"
-      echo $SINGLE_LINE_MAIL_MSG | sendmail -r $DO_NOT_REPLY_EMAIL -v $TO_PAGER_LIST
+      echo $SINGLE_LINE_MAIL_MSG | $SENDMAIL_LOCATION/sendmail -r $DO_NOT_REPLY_EMAIL -v $TO_PAGER_LIST
     else
       SINGLE_LINE_MAIL_MSG="Subject: ${COUNT_DN_NODES} node(s) in ${CASS_CLUSTER_NAME} might be down."
-      echo $SINGLE_LINE_MAIL_MSG | sendmail -r $DO_NOT_REPLY_EMAIL -v $TO_PAGER_LIST
+      echo $SINGLE_LINE_MAIL_MSG | $SENDMAIL_LOCATION/sendmail -r $DO_NOT_REPLY_EMAIL -v $TO_PAGER_LIST
     fi
 
     touch $CASS_STATUS_PG
