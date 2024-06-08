@@ -22,14 +22,13 @@ NODES="server1 server2"
 # nodes for repair
 # following can be used to run job on few selected nodes during each week day
 # space separated
-# if [[ "`date +'%a'`" = "Sat" ]]; then REPAIR_NODES=""; fi
-# if [[ "`date +'%a'`" = "Sun" ]]; then REPAIR_NODES=""; fi
-# if [[ "`date +'%a'`" = "Mon" ]]; then REPAIR_NODES=""; fi
-# if [[ "`date +'%a'`" = "Tue" ]]; then REPAIR_NODES=""; fi
-# if [[ "`date +'%a'`" = "Wed" ]]; then REPAIR_NODES=""; fi
-# if [[ "`date +'%a'`" = "Thu" ]]; then REPAIR_NODES=""; fi
-# if [[ "`date +'%a'`" = "Fri" ]]; then REPAIR_NODES=""; fi
-
+if [[ "`date +'%a'`" = "Sat" ]]; then REPAIR_NODES=""; fi
+if [[ "`date +'%a'`" = "Sun" ]]; then REPAIR_NODES=""; fi
+if [[ "`date +'%a'`" = "Mon" ]]; then REPAIR_NODES=""; fi
+if [[ "`date +'%a'`" = "Tue" ]]; then REPAIR_NODES=""; fi
+if [[ "`date +'%a'`" = "Wed" ]]; then REPAIR_NODES=""; fi
+if [[ "`date +'%a'`" = "Thu" ]]; then REPAIR_NODES=""; fi
+if [[ "`date +'%a'`" = "Fri" ]]; then REPAIR_NODES=""; fi
 
 if [[ "${#REPAIR_NODES}" -eq "0" ]];  then REPAIR_NODES="${NODES}";  fi
 
